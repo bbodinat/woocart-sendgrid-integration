@@ -16,9 +16,7 @@ class Sendgrid_Statistics
    */
   public static function set_up_menu()
   {
-    if ( ( ! is_multisite() and current_user_can('manage_options') ) || ( is_multisite() and ! is_main_site() and get_option( 'sendgrid_can_manage_subsite' ) ) ) {
-      // Add SendGrid widget in dashboard
-      add_action( 'wp_dashboard_setup', array( __CLASS__, 'add_dashboard_widget' ) );
+    if ( current_user_can('manage_options') ) {
 
       // Add SendGrid stats page in menu
       add_action( 'admin_menu', array( __CLASS__, 'add_statistics_menu' ) );
@@ -28,47 +26,7 @@ class Sendgrid_Statistics
 
       // Add SendGrid page for get statistics through ajax
       add_action( 'wp_ajax_sendgrid_get_stats', array( __CLASS__, 'get_ajax_statistics' ) );
-    } elseif ( is_multisite() and is_main_site() ) {
-      // Add SendGrid stats page in menu
-      add_action( 'network_admin_menu', array( __CLASS__, 'add_network_statistics_menu' ) );
-
-      // Add SendGrid javascripts in header
-      add_action( 'admin_enqueue_scripts', array( __CLASS__, 'add_headers' ) );
-
-      // Add SendGrid page for get statistics through ajax
-      add_action( 'wp_ajax_sendgrid_get_stats', array( __CLASS__, 'get_ajax_statistics' ) );
     }
-  }
-
-  /**
-   * Verify if provided SendGrid API Key is correct and
-   * initialize function for add widget in dashboard
-   *
-   * @return void
-   */
-  public static function add_dashboard_widget()
-  {
-    if ( ! current_user_can('manage_options') ) {
-      return;
-    }
-
-    $apikey = Sendgrid_Tools::get_api_key();
-    if ( ! Sendgrid_Tools::check_api_key( $apikey ) or ! Sendgrid_Tools::check_api_key_stats( $apikey ) ) {
-      return;
-    }
-
-    add_meta_box( 'sendgrid_statistics_widget', 'SendGrid Wordpress Statistics', array( __CLASS__, 'show_dashboard_widget' ),
-      'dashboard', 'normal', 'high' );
-  }
-
-  /**
-   * Display SendGrid widget content
-   *
-   * @return void
-   */
-  public static function show_dashboard_widget()
-  {
-    require plugin_dir_path( __FILE__ ) . '../view/partials/sendgrid_stats_widget.php';
   }
 
   /**
@@ -78,28 +36,9 @@ class Sendgrid_Statistics
    */
   public static function add_statistics_menu()
   {
-    $apikey = Sendgrid_Tools::get_api_key();
-    if ( ! Sendgrid_Tools::check_api_key( $apikey ) or ! Sendgrid_Tools::check_api_key_stats( $apikey ) ) {
-      return;
-    }
 
     add_dashboard_page( "SendGrid Statistics", "SendGrid Statistics", "manage_options", "sendgrid-statistics",
       array( __CLASS__, "show_statistics_page" ) );
-  }
-
-  /**
-   * Add SendGrid statistics page in the network menu
-   *
-   * @return void
-   */
-  public static function add_network_statistics_menu() {
-    $apikey = Sendgrid_Tools::get_api_key();
-    if ( ! Sendgrid_Tools::check_api_key( $apikey ) or ! Sendgrid_Tools::check_api_key_stats( $apikey ) ) {
-      return;
-    }
-
-    add_menu_page( __( 'SendGrid Stats' ), __( 'SendGrid Stats' ), 'manage_options', 'sendgrid-statistics',
-      array( __CLASS__, 'show_statistics_page' ));
   }
 
   /**

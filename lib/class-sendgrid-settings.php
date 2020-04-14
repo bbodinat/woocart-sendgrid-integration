@@ -2,9 +2,8 @@
 
 require_once plugin_dir_path( __FILE__ ) . 'sendgrid/class-sendgrid-smtp.php';
 require_once plugin_dir_path( __FILE__ ) . 'class-sendgrid-tools.php';
-require_once plugin_dir_path( __FILE__ ) . 'class-sendgrid-nlvx.php';
 require_once plugin_dir_path( __FILE__ ) . 'class-sendgrid-mc-optin.php';
-require_once plugin_dir_path( __FILE__ ) . 'class-sendgrid-nlvx-widget.php';
+
 
 class Sendgrid_Settings {
   const DEFAULT_SIGNUP_EMAIL_SUBJECT = 'Confirm your subscription to ';
