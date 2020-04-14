@@ -1,12 +1,12 @@
 
 # SendGrid
 
-* Contributors: team-rs
+* Contributors: SendGrid 
 * Donate link: http://sendgrid.com/
 * Tags: email, email reliability, email templates, sendgrid, smtp, transactional email, wp_mail,email infrastructure, email marketing, marketing email, deliverability, email deliverability, email delivery, email server, mail server, email integration, cloud email
 * Requires at least: 4.6
-* Tested up to: 4.8
-* Stable tag: 1.11.7
+* Tested up to: 4.9
+* Stable tag: 1.11.8
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,13 +22,21 @@ SendGrid’s WordPress plugin replaces WordPress’s default wp_mail() function 
 
 By using the SendGrid plugin, you will be able to take advantage of improved deliverability and an expanded feature set, including tracking and analytics, to enhance user engagement on your WordPress installation. SendGrid also provides world class customer support, should you run into any issues.
 
-For more details, consult our official documentation here : https://sendgrid.com/docs/Integrate/Tutorials/WordPress/index.html
+For more details, <a href="https://sendgrid.com/docs/Integrate/Tutorials/WordPress/index.html">consult our official documentation </a>
+
+For assistance you can contact SendGrid Support from the <a href="https://support.sendgrid.com/">SendGrid Support Portal</a>. Click **Login & Contact Support**, and then **Contact Support** to see your support contact options. Paying SendGrid customers have the option to contact support via phone, chat, or by submitting a ticket using our web form. All SendGrid customers have the option to submit a ticket using our web form.
+
+### Agency Program
+
+Are you sending emails on behalf of your clients? SendGrid's Agency Program offers exclusive pricing and support for agencies looking to improve their email program. 
+
+Want to learn more? Visit the <a href="https://www.sendgrid.com/partners/agencies">SendGrid Agency Page </a> 
 
 ### The Subscription Widget
 
 SendGrid’s WordPress Subscription Widget makes it easy for people visiting your WordPress site to subscribe to your marketing emails, such as any newsletters, announcements, or promotional offers you may send. Upon signup, they’ll automatically receive an opt-in email allowing them to confirm their desire to begin receiving your emails. This confirmation constitutes “double opt-in,” a deliverability best practice.
 
-For more details, consult the official documentation for the Subscription Widget here : https://sendgrid.com/docs/Integrate/Tutorials/WordPress/subscription_widget.html
+For more details, consult the official documentation for the <a href="https://sendgrid.com/docs/Integrate/Tutorials/WordPress/subscription_widget.html">Subscription Widget </a>
 
 ### Multisite
 
@@ -155,9 +163,13 @@ Note that all HTML emails sent through our plugin also contain the HTML body in 
 
 ## Frequently asked questions
 
+### Does SendGrid have an Agency program?
+
+Yes. If you are sending email on behalf of clients you can find more information on <a href="https://www.sendgrid.com/partners/agencies/">SendGrid's Agency page </a>
+
 ### Is there any official documentation for this plugin ?
 
-Yes. You can find it here : https://sendgrid.com/docs/Integrate/Tutorials/WordPress/index.html
+Yes. <a href="https://sendgrid.com/docs/Integrate/Tutorials/WordPress/index.html">You can find it here </a>
 
 ### What PHP versions are supported ?
 
