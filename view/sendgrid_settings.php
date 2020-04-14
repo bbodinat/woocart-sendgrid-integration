@@ -4,7 +4,7 @@
   </a>
 
   <?php
-    $tabs = array( 'general' => 'General', 'marketing' => 'Subscription Widget' );
+    $tabs = array( 'general' => 'General' );
 
     // If network settings display settings for subsites
     if ( is_multisite() and is_main_site() ) {
@@ -42,7 +42,6 @@
     require_once plugin_dir_path( __FILE__ ) . 'sendgrid_settings_nav.php';
     require_once plugin_dir_path( __FILE__ ) . 'sendgrid_settings_general.php';
     require_once plugin_dir_path( __FILE__ ) . 'sendgrid_settings_test_email.php';
-    require_once plugin_dir_path( __FILE__ ) . 'sendgrid_settings_nlvx.php';
     require_once plugin_dir_path( __FILE__ ) . 'sendgrid_settings_test_contact.php';
     require_once plugin_dir_path( __FILE__ ) . 'sendgrid_settings_multisite.php';
   ?>

@@ -71,10 +71,7 @@ class Sendgrid_OptIn_API_Endpoint{
       exit();
     }
 
-    $subscribed = Sendgrid_NLVX::create_and_add_recipient_to_list(
-                    $transient['email'],
-                    $transient['first_name'],
-                    $transient['last_name'] );
+    $subscribed = false;
 
     if ( $subscribed )
     {

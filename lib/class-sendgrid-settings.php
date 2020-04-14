@@ -211,7 +211,7 @@ class Sendgrid_Settings {
     }
 
     $contact_list_id_is_valid = false;
-    $contact_lists = Sendgrid_NLVX::get_all_lists();
+    $contact_lists = false;
 
     // If the response to get all contact lists did not fail
     if ( false != $contact_lists ) {

@@ -421,15 +421,6 @@ class Sendgrid_Tools
     return Sendgrid_Tools::get_sendgrid_option( 'mc_auth_valid' );
   }
 
-  /**
-   * Return the value for flag that signifies if the widget notice has been dismissed
-   *
-   * @return  mixed  'true' or 'false', false if the value is not found
-   */
-  public static function get_mc_widget_notice_dismissed()
-  {
-    return Sendgrid_Tools::get_sendgrid_option( 'mc_widget_notice_dismissed' );
-  }
 
   /**
    * Sets api_key in the database
@@ -565,19 +556,7 @@ class Sendgrid_Tools
     return Sendgrid_Tools::update_sendgrid_option( 'mc_auth_valid', $auth_valid );
   }
 
-  /**
-   * Sets a flag that signifies that the subscription widget notice has been dismissed
-   *
-   * @param   type  string  $notice_dismissed ( 'true' or 'false' )
-   *
-   * @return  bool
-   */
-  public static function set_mc_widget_notice_dismissed( $notice_dismissed )
-  {
-    return Sendgrid_Tools::update_sendgrid_option( 'mc_widget_notice_dismissed', $notice_dismissed );
-  }
-
-  /**
+   /**
    * Return send method from the database or global variable
    *
    * @return  string  send_method
@@ -1445,43 +1424,4 @@ class Sendgrid_Tools
       return self::DEFAULT_TIMEOUT;
     }
   }
-}
-
-/**
- * Function that registers the SendGrid plugin widgets
- *
- * @return void
- */
-function register_sendgrid_widgets() {
-  register_widget( 'SendGrid_NLVX_Widget' );
-}
-
-/**
- * Function that unregisters the SendGrid plugin widgets
- *
- * @return void
- */
-function unregister_sendgrid_widgets() {
-  unregister_widget( 'SendGrid_NLVX_Widget' );
-}
-
-/**
- * Function that outputs the SendGrid widget notice
- *
- * @return void
- */
-function sg_subscription_widget_admin_notice() {
-  if( ! current_user_can('manage_options') ) {
-    return;
-  }
-
-  echo '<div class="notice notice-success">';
-  echo '<p>';
-  echo _e( 'Check out the new SendGrid Subscription Widget! See the SendGrid Plugin settings page in order to configure it.' );
-  echo '<form method="post" id="sendgrid_mc_email_form" class="mc_email_form" action="#">';
-  echo '<input type="hidden" name="sg_dismiss_widget_notice" id="sg_dismiss_widget_notice" value="true"/>';
-  echo '<input type="submit" id="sendgrid_mc_email_submit" value="Dismiss this notice" style="padding: 0!important; font-size: small; background: none; border: none; color: #0066ff; text-decoration: underline; cursor: pointer;" />';
-  echo '</form>';
-  echo '</p>';
-  echo '</div>';
 }
